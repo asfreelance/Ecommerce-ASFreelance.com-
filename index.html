@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>As Freelance · Domina tu mercado con webs que realmente venden</title>
+<meta name="description" content="As Freelance — freelance híbrido de desarrollo de software y marketing digital. Webs que venden, entregas rápidas, resultados reales.">
+<link rel="icon" type="image/png" href="imagenes/logo_as_freelance.png">
+
+<!-- ===== FUENTES ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ===== FONT AWESOME (íconos) ===== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- ===== CSS PROPIO ===== -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================================================== -->
+<!-- CURSOR PERSONALIZADO -->
+<!-- ===================================================== -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ===================================================== -->
+<!-- BARRA DE PROGRESO DE SCROLL -->
+<!-- ===================================================== -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===================================================== -->
+<!-- LUZ QUE SIGUE AL CURSOR (efecto spotlight) -->
+<!-- ===================================================== -->
+<div class="spotlight" id="spotlight"></div>
+
+<!-- ===================================================== -->
+<!-- CONFETI AL HACER CLIC EN BOTONES CTA -->
+<!-- ===================================================== -->
+<canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+<!-- ===================================================== -->
+<!-- HEADER / NAV -->
+<!-- ===================================================== -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#hero" class="brand">
+      <img src="imagenes/logotipo_as_freelance_blanco_png.png" alt="As Freelance " class="brand-logo">
+      <span class="brand-text">AS<span>FREELANCE</span></span>
+    </a>
+    
+    <nav class="main-nav" id="mainNav">
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#oferta" class="nav-link">Oferta</a>
+      <a href="#porque" class="nav-link">Por qué nosotros</a>
+      <a href="#proceso" class="nav-link">Proceso</a>
+      <a href="#empleo" class="nav-link">Empleo</a>
+      <a href="#garantia" class="nav-link">Garantía</a>
+      <a href="#faq" class="nav-link">PF</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
+    </nav>
+    
+    <div style="display: flex; align-items: center; gap: 8px;">
+  <a href="#juego" class="btn-game">
+    <i class="fa-solid fa-gamepad"></i>
+    <span>¿Quieres jugar?</span>
+  </a>
+  
+    <!-- CONTENEDOR DE BOTONES AGRUPADOS -->
+    <div class="nav-buttons" style="display: flex; gap: 15px; align-items: center;">
+      <a href="https://calendar.app.google/WQF4nYYZXcmXiMgg8" target="_blank" rel="noopener" class="btn btn-outline btn-nav">Agendar asesoría</a>
+      
+      <!-- NUEVO BOTÓN DE SUSCRIPCIÓN CON GMAIL WEB (TEXTO EMPÁTICO) -->
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=freelanceatlassquad@gmail.com&su=%C2%A1Hola%2C%20equipo%20de%20Atlas%20Squad!%20Me%20encantar%C3%ADa%20colaborar%20con%20ustedes&body=%C2%A1Hola%2C%20equipo!%0A%0AMe%20entusiasma%20mucho%20la%20idea%20de%20trabajar%20juntos%20y%20potenciar%20mi%20proyecto.%20Les%20comparto%20mis%20datos%20para%20que%20podamos%20charlar%3A%0A%0AMi%20nombre%20es%3A%20%0AMi%20correo%20es%3A%20%0AMi%20n%C3%BAmero%20(o%20WhatsApp)%20es%3A%20%0A%0AEstoy%20interestedo%20en%3A%20%0AComo%20detalle%20extra%3A%20%0ATengo%20un%20presupuesto%20aproximado%20de%3A%20%0A%0A%C2%A1Quedo%20muy%20atento%20a%20su%20respuesta%2C%20un%20saludo!" target="_blank" rel="noopener" class="btn btn-outline btn-nav">Correo</a>
+    </div>
+
+    <button class="burger" id="burgerBtn" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<!-- ===================================================== -->
+<!-- HERO -->
+<!-- ===================================================== -->
+<section class="hero" id="hero">
+  <canvas id="particleCanvas" class="particle-canvas"></canvas>
+  <canvas id="atlasCanvas" class="atlas-canvas"></canvas>
+
+  <div class="hero-content">
+    <img src="imagenes/logotipo_as_freelance_blanco_png.png" alt="As Freelance " class="hero-logo reveal-fade">
+    <p class="eyebrow reveal-fade">Software · Marketing · Resultados</p>
+    <h1 class="hero-title reveal-fade">AS FREELANCE</h1>
+    <p class="hero-subtitle">
+      <span id="typewriter"></span><span class="cursor-blink">|</span>
+    </p>
+  
+<div class="hero-actions reveal-fade">
+  <a href="https://calendar.app.google/WQF4nYYZXcmXiMgg8" target="_blank" rel="noopener" class="btn btn-primary">
+    <span>Agendar asesoría</span>
+    <i class="fa-solid fa-arrow-right"></i>
+  </a>
+  <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+  <a href="#experiencias" class="btn btn-primary btn-scratch-gold">
+    <span>Experiencias</span>
+    <i class="fa-solid fa-arrow-right"></i>
+  </a>
+</div>
+
+<div class="scroll-hint">
+  <span>Desliza</span>
+  <div class="scroll-hint-line"></div>
+</div>
+</section>
+
+<!-- ===================================================== -->
+<!-- BANNER PROMOCIONAL -->
+<!-- ===================================================== -->
+<section class="banner-section">
+  <div class="banner-frame reveal-fade" id="bannerFrame">
+    <img src="imagenes/banner.png" alt="As Freelance — Equipo freelance de software y marketing" loading="lazy">
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- NUESTRA HISTORIA -->
+<!-- ===================================================== -->
+<!-- Fuentes: si ya cargas Rajdhani e Inter en el <head> de tu web, -->
+<!-- borra este link para no duplicarlo -->
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!--
+  IMPORTANTE: esta section usa SOLO la clase "historia-section",
+  a propósito NO lleva la clase "section" que usas en el resto de tu web.
+  Esa clase global probablemente tiene su propio min-height (por ejemplo 100vh)
+  y era la razón real por la que esta parte se veía enorme sin importar
+  cuánto redujera yo el tamaño aquí. Al quitarla, esta sección queda
+  completamente independiente y respeta la altura que definimos abajo.
+-->
+<section class="historia-section" id="historia">
+
+  <!-- Fondos divididos por la diagonal -->
+  <div class="historia-bg historia-bg-white"></div>
+  <div class="historia-bg historia-bg-black"></div>
+
+  <!-- Línea diagonal animada, esquina inferior izquierda -> esquina superior derecha -->
+  <svg class="historia-diagonal" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="historiaLineGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#1a365d" stop-opacity="0.2"/>
+        <stop offset="50%" stop-color="#4f8cff"/>
+        <stop offset="100%" stop-color="#1a365d" stop-opacity="0.2"/>
+      </linearGradient>
+      <filter id="historiaLineGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="1.4" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    <line class="historia-diagonal-line" x1="0" y1="100" x2="100" y2="0"
+          stroke="url(#historiaLineGrad)" stroke-width="0.5"
+          filter="url(#historiaLineGlow)" vector-effect="non-scaling-stroke"/>
+  </svg>
+
+  <!-- Puntitos decorativos en el lado negro -->
+  <div class="historia-dots" aria-hidden="true"></div>
+
+  <div class="historia-content">
+
+    <!-- Bloque de historia: lado blanco, arriba-izquierda -->
+    <div class="historia-block historia-block-light">
+      <span class="historia-eyebrow reveal-up">Quiénes somos</span>
+      <h2 class="historia-title reveal-up">Nuestra historia</h2>
+      <p class="reveal-up" style="--delay: 0.1s;">
+        No somos la agencia millonaria de siempre, con tarifas altas y procesos
+        lentos. As Freelance nació como una iniciativa colectiva de profesionales
+        apasionados por la tecnología. <strong>Y esa es tu mayor ventaja.</strong>
+      </p>
+    </div>
+
+    <!-- Bloque de idea revolucionaria: lado negro, abajo-derecha -->
+    <div class="historia-block historia-block-dark">
+      <span class="historia-mark reveal-up">?</span>
+      <h3 class="reveal-up" style="--delay: 0.1s;">¿Tienes una idea revolucionaria?</h3>
+      <p class="reveal-up" style="--delay: 0.2s;">
+        Si estás cocinando algo innovador que nadie más ha hecho, cuéntanos al
+        privado y construyamos el futuro desde cero.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- CSS: agrega esto a tu hoja de estilos, o dejalo dentro -->
+<!-- de este <style> si prefieres tenerlo autocontenido -->
+<!-- ===================================================== -->
+<style>
+/* Altura FIJA (no min-height) para que el tamaño de la sección */
+/* nunca dependa de cuánto texto tenga adentro */
+.historia-section {
+  position: relative;
+  overflow: hidden;
+  height: 380px;
+}
+
+.historia-title,
+.historia-block-dark h3 {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.historia-eyebrow,
+.historia-block-light p,
+.historia-block-dark p,
+.historia-mark {
+  font-family: 'Inter', sans-serif;
+}
+
+.historia-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.historia-bg-white {
+  background: #ffffff;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.historia-bg-black {
+  background: #0a0e1a;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.historia-diagonal {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.historia-diagonal-line {
+  stroke-dasharray: 145;
+  stroke-dashoffset: 145;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.historia-diagonal.is-visible .historia-diagonal-line {
+  stroke-dashoffset: 0;
+  animation: historia-line-pulse 3.5s ease-in-out 1.6s infinite;
+}
+
+@keyframes historia-line-pulse {
+  0%, 100% { stroke-width: 0.5; }
+  50% { stroke-width: 0.75; }
+}
+
+.historia-dots {
+  position: absolute;
+  right: 6%;
+  top: 8%;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  background-image: radial-gradient(rgba(79, 140, 255, 0.35) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Contenedor de posicionamiento: altura fija, los bloques van absolutos adentro */
+.historia-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 44px;
+  box-sizing: border-box;
+}
+
+.historia-block {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.historia-block-light {
+  top: 26px;
+  left: 44px;
+  width: 380px;
+  max-width: 40%;
+}
+
+.historia-block-dark {
+  bottom: 26px;
+  right: 44px;
+  width: 380px;
+  max-width: 38%;
+  text-align: left;
+}
+
+.historia-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1a365d;
+  background: rgba(26, 54, 93, 0.25);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.historia-title {
+  font-weight: 700;
+  font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+  color: #0a0e1a;
+  margin: 0 0 10px;
+  letter-spacing: 0.01em;
+}
+
+.historia-block-light p {
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: #414855;
+  margin: 0;
+}
+
+.historia-block-light p strong {
+  color: #0a0e1a;
+}
+
+.historia-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(79, 140, 255, 0.15);
+  border: 1px solid rgba(79, 140, 255, 0.4);
+  color: #4f8cff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.historia-block-dark h3 {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin: 0 0 8px;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.historia-block-dark p {
+  color: #b7bdc9;
+  font-size: 1rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Reveal on scroll */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .historia-section {
+    height: auto;
+  }
+  .historia-bg-white,
+  .historia-bg-black {
+    clip-path: none;
+  }
+  .historia-bg-white {
+    height: 55%;
+  }
+  .historia-bg-black {
+    top: 55%;
+    height: 45%;
+  }
+  .historia-diagonal,
+  .historia-dots {
+    display: none;
+  }
+  .historia-content {
+    height: auto;
+    padding: 32px 24px;
+  }
+  .historia-block {
+    position: static;
+    width: 100%;
+    max-width: none;
+    margin-bottom: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .historia-diagonal-line,
+  .historia-diagonal.is-visible .historia-diagonal-line {
+    transition: none;
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+</style>
+
+<!-- ===================================================== -->
+<!-- JS: agrega esto antes de </body>                       
+<!-- principal si ya tienes uno para las animaciones reveal -->
+<!-- ===================================================== -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const revealTargets = document.querySelectorAll('#historia .reveal-up');
+  const line = document.querySelector('#historia .historia-diagonal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  revealTargets.forEach((el) => observer.observe(el));
+  if (line) observer.observe(line);
+});
+</script>
+
+<!-- ===================================================== -->
+<!-- OFERTA DE LANZAMIENTO -->
+<!-- ===================================================== -->
+<!-- Ajuste de padding-top agregado aquí para el espacio negro -->
+<section class="section section-dark promo-section" id="oferta" style="padding-top: 20px;">
+  <div class="section-inner">
+    <div class="promo-header">
+      <div>
+        <p class="eyebrow reveal-fade">Solo por tiempo limitado</p>
+        <h2 class="section-title glow-text reveal-fade">Oferta de lanzamiento</h2>
+        <p class="section-lead reveal-fade">Estamos consiguiendo nuestros primeros 50 testimonios reales. Mientras tanto, tú pagas hasta 70% menos.</p>
+      </div>
+      <a href="https://TU-ENLACE-AQUI.com" target="_blank" rel="noopener" class="promo-badge reveal-fade">
+        <span class="promo-badge-number">31</span>
+        <span class="promo-badge-text">días o es<br>GRATIS</span>
+      </a>
+    </div>
+
+    <!-- Barra de progreso de testimonios: edita data-current cuando sumes testimonios reales -->
+    <div class="testimonial-progress reveal-fade">
+      <div class="testimonial-progress-labels">
+        <span><i class="fa-solid fa-star"></i> Portafolios conseguidos</span>
+        <span><span class="testimonial-count" data-current="0" data-target="50">0</span>/50</span>
+      </div>
+      <div class="testimonial-bar">
+        <div class="testimonial-bar-fill" id="testimonialFill" data-current="0" data-target="50"></div>
+      </div>
+      <p class="testimonial-note">Cuando lleguemos a 50 testimonios, estos precios de lanzamiento suben para siempre.</p>
+    </div>
+
+    <div class="promo-grid">
+      <div class="promo-card reveal-fade">
+        <span class="promo-off">-70%</span>
+        <h3>Tienda Virtual Con Base De Datos</h3>
+        <p class="promo-price-old">Antes Desde $3.000.000 COP</p>
+        <p class="promo-price-new">Desde $1.000.000 COP</p>
+      </div>
+      <div class="promo-card reveal-fade">
+        <span class="promo-off">-67%</span>
+        <h3>Portafolio Digital Con Contactos</h3>
+        <p class="promo-price-old">Antes Desde $2.100.000 COP</p>
+        <p class="promo-price-new">Desde $700.000 COP</p>
+      </div>
+      <div class="promo-card reveal-fade">
+        <span class="promo-off">-67%</span>
+        <h3>Optimización Web</h3>
+        <p class="promo-price-old">Antes Desde $150.000 COP</p>
+        <p class="promo-price-new">Desde $50.000 COP</p>
+      </div>
+      <div class="promo-card reveal-fade">
+        <span class="promo-off">-67%</span>
+        <h3>Actualización de Contenido</h3>
+        <p class="promo-price-old">Antes Desde $150.000 COP</p>
+        <p class="promo-price-new">Desde $50.000 COP</p>
+      </div>
+    </div>
+    
+    <!-- ===================================================== -->
+    <!-- NUEVO BOTÓN PERSUASIVO GRANDE (ENLACE EXTERNO) -->
+    <!-- ===================================================== -->
+    <div class="promo-action-container reveal-fade" style="text-align: center; margin-top: 45px; margin-bottom: 35px;">
+      <!-- Cambia el href="#" por el enlace a tu otra web -->
+      <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; font-size: 1.15rem; font-weight: 700;">
+        <span>Descubre todo lo que incluye tu compra (y por qué nadie más iguala este precio)</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>
+
+    <p class="guarantee-note reveal-fade">* Precios de referencia en COP — ajústalos si tu tarifa real es en otra moneda. La garantía de 31 días aplica con 50% de adelanto y entrega a tiempo de la información por parte del cliente.</p>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- CONTADORES -->
+<!-- ===================================================== -->
+<section class="stats-band">
+  <div class="stats-inner">
+    <div class="stat-item reveal-fade">
+      <span class="stat-number" data-target="50" data-suffix="+">0</span>
+      <span class="stat-label">Meta de proyectos 2026</span>
+    </div>
+    <div class="stat-item reveal-fade">
+      <span class="stat-number" data-target="31" data-suffix=" días">0</span>
+      <span class="stat-label">Tiempo de entrega maximo</span>
+    </div>
+    <div class="stat-item reveal-fade">
+      <span class="stat-number" data-target="100" data-suffix="%">0</span>
+      <span class="stat-label">Satisfacción</span>
+    </div>
+    <div class="stat-item reveal-fade">
+      <span class="stat-number" data-target="24" data-suffix="/7">0</span>
+      <span class="stat-label">Soporte disponible</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- SERVICIOS -->
+<!-- ===================================================== -->
+<section class="section section-light" id="servicios">
+  <div class="section-inner">
+    <p class="eyebrow reveal-fade">Lo que hacemos por ahora</p>
+    <h2 class="section-title reveal-fade">Nuestros servicios</h2>
+    <p class="section-lead reveal-fade">Cuatro caminos, un mismo destino: una web que trabaja para ti mientras duermes. Precios de lanzamiento activos mientras conseguimos nuestros primeros 50 testimonios.</p>
+
+    <div class="cards-grid">
+
+      <article class="service-card reveal-fade">
+        <div class="service-card-media">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80" alt="Tienda virtual" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-icon"><i class="fa-solid fa-cart-shopping"></i></span>
+          <h3>Tienda Virtual</h3>
+          <span class="service-off">-70% OFF</span>
+          <p class="service-price">
+            <span class="price-old">Desde $3.000.000 COP</span>
+            <span class="price-new">Desde $1.000.000 COP</span>
+          </p>
+          <ul class="service-benefits">
+            <li><i class="fa-solid fa-check"></i>Catálogo ilimitado de productos</li>
+            <li><i class="fa-solid fa-check"></i>Pasarela de pagos integrada</li>
+            <li><i class="fa-solid fa-check"></i>Panel de administración simple</li>
+            <li><i class="fa-solid fa-check"></i>Optimizada para conversión</li>
+          </ul>
+          <a href="https://calendar.app.google/WQF4nYYZXcmXiMgg8" target="_blank" rel="noopener" class="btn btn-card">Cotizar</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal-fade">
+        <div class="service-card-media">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" alt="Portafolio digital" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-icon"><i class="fa-solid fa-briefcase"></i></span>
+          <h3>Portafolio Digital</h3>
+          <span class="service-off">-67% OFF</span>
+          <p class="service-price">
+            <span class="price-old">Desde $2.100.000 COP</span>
+            <span class="price-new">Desde $700.000 COP</span>
+          </p>
+          <ul class="service-benefits">
+            <li><i class="fa-solid fa-check"></i>Diseño a medida de tu marca</li>
+            <li><i class="fa-solid fa-check"></i>Galería de proyectos animada</li>
+            <li><i class="fa-solid fa-check"></i>Formulario de contacto directo</li>
+            <li><i class="fa-solid fa-check"></i>Carga ultra rápida</li>
+          </ul>
+          <a href="https://calendar.app.google/WQF4nYYZXcmXiMgg8" target="_blank" rel="noopener" class="btn btn-card">Cotizar</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal-fade">
+        <div class="service-card-media">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Optimización web" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-icon"><i class="fa-solid fa-gauge-high"></i></span>
+          <h3>Optimización Web</h3>
+          <span class="service-off">-67% OFF</span>
+          <p class="service-price">
+            <span class="price-old">Desde $150.000 COP</span>
+            <span class="price-new">Desde $50.000 COP</span>
+          </p>
+          <ul class="service-benefits">
+            <li><i class="fa-solid fa-check"></i>Auditoría de velocidad y SEO</li>
+            <li><i class="fa-solid fa-check"></i>Corrección técnica completa</li>
+            <li><i class="fa-solid fa-check"></i>Mejora en buscadores (Google)</li>
+            <li><i class="fa-solid fa-check"></i>Reporte de resultados</li>
+          </ul>
+          <a href="https://calendar.app.google/WQF4nYYZXcmXiMgg8" target="_blank" rel="noopener" class="btn btn-card">Cotizar</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal-fade">
+        <div class="service-card-media">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80" alt="Actualización de contenido" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <span class="service-icon"><i class="fa-solid fa-pen-nib"></i></span>
+          <h3>Actualización de Contenido</h3>
+          <span class="service-off">-67% OFF</span>
+          <p class="service-price">
+            <span class="price-old">Desde $150.000 COP</span>
+            <span class="price-new">Desde $50.000 COP</span>
+          </p>
+          <ul class="service-benefits">
+            <li><i class="fa-solid fa-check"></i>Textos, precios e imágenes al día</li>
+            <li><i class="fa-solid fa-check"></i>Cambios en menos de 48h</li>
+            <li><i class="fa-solid fa-check"></i>Sin conocimientos técnicos</li>
+            <li><i class="fa-solid fa-check"></i>Ideal para negocios activos</li>
+          </ul>
+          <a href="https://calendar.app.google/WQF4nYYZXcmXiMgg8" target="_blank" rel="noopener" class="btn btn-card">Cotizar</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- CSS: agregar esto a tu hoja de estilos (o dentro de un <style> si no tienes archivo separado) -->
+<!-- Reemplaza cualquier regla anterior de .service-price que tuvieras -->
+<!-- ===================================================== -->
+<style>
+.service-price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 12px 0 20px;
+  line-height: 1.3;
+}
+
+.service-price .price-old {
+  font-size: 0.85rem;
+  color: #8a8f98;
+  text-decoration: line-through;
+  font-weight: 400;
+}
+
+.service-price .price-new {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+</style>
+
+<!-- ===================================================== -->
+<!-- POR QUÉ AS FREELANCE -->
+<!-- ===================================================== -->
+<section class="section section-dark" id="porque">
+  
+  <!-- ESTILOS DE ESTRUCTURA Y ANIMACIÓN DEL BOTÓN FUSIONADOS -->
+  <style>
+    .section-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .header-text-content {
+      max-width: 55%;
+    }
+
+    .btn-mira-trabajo {
+      display: inline-block;
+      padding: 18px 38px; /* Más grande */
+      font-size: 1.15rem; /* Texto más grande */
+      font-weight: 700;
+      color: #ffffff;
+      background: transparent;
+      border: 2px solid #00a8ff;
+      border-radius: 12px; /* Rectángulo con bordes redondeados */
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 10px rgba(0, 168, 255, 0.2);
+      animation: pulse-glow 2s infinite;
+    }
+
+    .btn-mira-trabajo:hover {
+      background: #00a8ff;
+      color: #000000;
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(0, 168, 255, 0.6), 0 0 40px rgba(0, 168, 255, 0.3);
+    }
+
+    @keyframes pulse-glow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 168, 255, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(0, 168, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 168, 255, 0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+      }
+      .header-text-content {
+        max-width: 100%;
+      }
+      .btn-mira-trabajo {
+        width: 100%; /* En celulares ocupa todo el ancho */
+      }
+    }
+  </style>
+
+  <div class="section-inner">
+    <!-- Contenedor flex con el texto a la izquierda y el botón a la derecha -->
+    <div class="section-header-flex">
+      <div class="header-text-content">
+        <p class="eyebrow reveal-fade">Nuestra diferencia</p>
+        <h2 class="section-title reveal-fade">¿Por qué AS Freelance?</h2>
+        <p class="section-lead reveal-fade">No vendemos plantillas. Construimos activos digitales que sostienen tu negocio.</p>
+      </div>
+      
+      <!-- Botón alineado a la derecha -->
+      <div class="header-action reveal-fade">
+        <a href="#" class="btn-mira-trabajo">Oprime aquí para ver nuestro trabajo</a>
+      </div>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar reveal-fade">
+        <span class="pillar-number">00</span>
+        <i class="fa-solid fa-layer-group pillar-icon"></i>
+        <h3>100% Estrategia</h3>
+        <p>Cada página es estética, funcional y adecuada a tus necesidades.</p>
+      </div>
+      <div class="pillar reveal-fade">
+        <span class="pillar-number">01</span>
+        <i class="fa-solid fa-bullseye pillar-icon"></i>
+        <h3>Enfoque en resultados</h3>
+        <p>Diseñamos para convertir visitas en clientes, no solo para verse bien. El marketing va integrado.</p>
+      </div>
+      <div class="pillar reveal-fade">
+        <span class="pillar-number">02</span>
+        <i class="fa-solid fa-bolt pillar-icon"></i>
+        <h3>Entregas rápidas</h3>
+        <p>Procesos ágiles y comunicación directa. Tu proyecto avanza todos los días, sin cuellos de botella.</p>
+      </div>
+      <div class="pillar reveal-fade">
+        <span class="pillar-number">03</span>
+        <i class="fa-solid fa-headset pillar-icon"></i>
+        <h3>Soporte 24/7</h3>
+        <p>Siempre hay alguien del equipo disponible para resolver dudas o incidencias, cuando lo necesites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- PROCESO DE TRABAJO -->
+<!-- ===================================================== -->
+<section class="section section-light" id="proceso">
+  <div class="section-inner">
+    <p class="eyebrow reveal-fade">Cómo trabajamos</p>
+    <h2 class="section-title reveal-fade">Proceso de trabajo</h2>
+    <p class="section-lead reveal-fade">Un camino claro, de la idea al lanzamiento.</p>
+
+    <div class="timeline" id="timeline">
+      <div class="timeline-track">
+        <div class="timeline-progress" id="timelineProgress"></div>
+      </div>
+      <div class="timeline-steps">
+        <div class="timeline-step reveal-fade">
+          <span class="step-index">01</span>
+          <div class="step-dot"></div>
+          <h3>Diagnóstico</h3>
+          <p>Analizamos tu negocio, tu competencia y tu público para entender qué necesitas realmente.</p>
+        </div>
+        <div class="timeline-step reveal-fade">
+          <span class="step-index">02</span>
+          <div class="step-dot"></div>
+          <h3>Propuesta</h3>
+          <p>Te presentamos una estrategia y un diseño a la medida, con alcance y tiempos claros.</p>
+        </div>
+        <div class="timeline-step reveal-fade">
+          <span class="step-index">03</span>
+          <div class="step-dot"></div>
+          <h3>Desarrollo</h3>
+          <p>Construimos tu web con actualizaciones constantes para que veas el avance en tiempo real.</p>
+        </div>
+        <div class="timeline-step reveal-fade">
+          <span class="step-index">04</span>
+          <div class="step-dot"></div>
+          <h3>Entrega</h3>
+          <p>Lanzamos tu proyecto, te capacitamos para usarlo y quedamos disponibles para soporte.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- GARANTÍA DE CONFIANZA -->
+<!-- ===================================================== -->
+<section class="section section-dark section-guarantee" id="garantia">
+  <div class="parallax-bg" data-speed="0.3"></div>
+  <div class="section-inner">
+    <p class="eyebrow reveal-fade">Sin riesgo para ti</p>
+    <h2 class="section-title reveal-fade">Garantía de confianza</h2>
+    <p class="section-lead reveal-fade"> "No todo es palabra: te damos un recibo o contrato con todo lo que incluye tu compra, el trabajo, los tiempos, la garantía y el valor exacto."</p>
+
+    <div class="guarantee-grid">
+      <div class="guarantee-card guarantee-card-highlight reveal-fade">
+        <i class="fa-solid fa-stopwatch"></i>
+        <h3>31 días o es gratis</h3>
+        <p>Si no entregamos tu proyecto en 31 días corridos, no pagas nada. Aplica dando un 50% de adelanto y entregando tú a tiempo la información y contenidos necesarios.</p>
+      </div>
+      <div class="guarantee-card reveal-fade">
+        <i class="fa-solid fa-shield-heart"></i>
+        <h3>6 meses de corrección</h3>
+        <p>Cualquier error técnico se soluciona sin costo durante los primeros 6 meses.</p>
+      </div>
+      <div class="guarantee-card reveal-fade">
+        <i class="fa-solid fa-rotate"></i>
+        <h3>Una actualización valida por 1 mes</h3>
+        <p>El primer mes, te damos un cambio de contenido de tu web que corre por nuestra cuenta.</p>
+      </div>
+      <div class="guarantee-card reveal-fade">
+        <i class="fa-solid fa-handshake"></i>
+        <h3>Contra entrega opcional</h3>
+        <p>¿Prefieres no dar adelanto? También puedes acordar el pago completo contra la entrega final del proyecto.</p>
+      </div>
+    </div>
+    <p class="guarantee-note reveal-fade">* La garantía de 31 días aplica a proyectos iniciados con el 50% de adelanto y solo si el cliente entrega a tiempo toda la información y contenidos solicitados. Con pago contra entrega, seguimos trabajando con la misma rapidez, pero sin este respaldo específico.</p>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- FAQ -->
+<!-- ===================================================== -->
+<section class="section section-light" id="faq">
+  <div class="section-inner section-inner-narrow">
+    <p class="eyebrow reveal-fade">Dudas frecuentes</p>
+    <h2 class="section-title reveal-fade">Preguntas frecuentes</h2>
+
+    <div class="faq-list">
+      <div class="faq-item reveal-fade">
+        <button class="faq-question">
+          <span>¿Cuánto tiempo tarda el desarrollo de mi web?</span>
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <p>En condiciones normales, entregamos tu proyecto en pocos días. Si iniciamos con el 50% de adelanto y no cumplimos el plazo máximo de 31 días, la web es gratis.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal-fade">
+        <button class="faq-question">
+          <span>¿Necesito tener contenido o diseño listo?</span>
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <p>No. Podemos ayudarte a crear textos, imágenes y estructura desde cero durante la fase de diagnóstico y propuesta.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal-fade">
+        <button class="faq-question">
+          <span>¿Qué pasa después de la entrega?</span>
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Tienes 6 meses de corrección de errores y una actualización de contenido o estetica valida por 1 mes incluidos, sin costo adicional.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal-fade">
+        <button class="faq-question">
+          <span>¿Cómo empiezo a trabajar con Atlas Squad?</span>
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Agenda una asesoría gratuita en el calendario. Ahí definimos tu diagnóstico inicial y el siguiente paso.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal-fade">
+        <button class="faq-question">
+          <span>¿Qué pasa si no entrego mi información a tiempo?</span>
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <p>La garantía de 31 días depende de que tú nos entregues a tiempo los textos, imágenes o accesos que pidamos. Si hay demoras de tu parte, el plazo se ajusta en la misma proporción.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal-fade">
+        <button class="faq-question">
+          <span>¿Cómo aplico a una de las vacantes?</span>
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="faq-answer">
+          <p>En la sección "Estamos contratando" encuentras el botón "Postularme" para cada rol. Ahí podrás indagar mas a fondo y dejarnos tus datos para que te contact para los siguientes pasos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- ESTAMOS CONTRATANDO -->
+<!-- ===================================================== -->
+<section class="section section-light" id="empleo">
+  <div class="section-inner">
+    <p class="eyebrow reveal-fade">Únete al equipo</p>
+    <h2 class="section-title reveal-fade">Estamos contratando</h2>
+    <p class="section-lead reveal-fade">AS Freelance está creciendo. Buscamos personas con ganas de aprender y aportar, sin importar si ya tienes experiencia.</p>
+
+    <div class="jobs-grid jobs-grid-3">
+      <article class="job-card reveal-fade">
+        <span class="service-icon"><i class="fa-solid fa-code"></i></span>
+        <h3>Desarrollo de Software</h3>
+        <p>Para quienes quieren aprender o ya se están iniciando en desarrollo web. Trabajarás en proyectos reales con mentoría directa del equipo.</p>
+        <ul class="service-benefits">
+          <li><i class="fa-solid fa-check"></i>HTML, CSS y JavaScript</li>
+          <li><i class="fa-solid fa-check"></i>WordPress y sitios a medida</li>
+          <li><i class="fa-solid fa-check"></i>No se requiere experiencia previa</li>
+        </ul>
+        <!-- TODO: reemplaza el '#' por el enlace real de tu formulario de postulación -->
+        <a href="#" target="_blank" rel="noopener" class="btn btn-card job-apply-link">Postularme</a>
+      </article>
+
+      <article class="job-card reveal-fade">
+        <span class="service-icon"><i class="fa-solid fa-bullhorn"></i></span>
+        <h3>Marketing Digital</h3>
+        <p>Para quienes quieren aprender o ya manejan marketing digital. Aprendes aplicando estrategias reales a clientes reales.</p>
+        <ul class="service-benefits">
+          <li><i class="fa-solid fa-check"></i>SEO y redes sociales</li>
+          <li><i class="fa-solid fa-check"></i>Email marketing y copywriting</li>
+          <li><i class="fa-solid fa-check"></i>Aprendizaje práctico y acompañado</li>
+        </ul>
+        <!-- TODO: reemplaza el '#' por el enlace real de tu formulario de postulación -->
+        <a href="#" target="_blank" rel="noopener" class="btn btn-card job-apply-link">Postularme</a>
+      </article>
+
+      <article class="job-card reveal-fade">
+        <span class="service-icon"><i class="fa-solid fa-headset"></i></span>
+        <h3>Appointment Setters</h3>
+        <p>Encárgate de contactar, agendar y calificar clientes potenciales para nuestro equipo comercial. Ideal si te comunicas bien y eres organizado.</p>
+        <ul class="service-benefits">
+          <li><i class="fa-solid fa-check"></i>Trabajo remoto y flexible</li>
+          <li><i class="fa-solid fa-check"></i>Comisiones por resultados</li>
+          <li><i class="fa-solid fa-check"></i>Capacitación incluida</li>
+        </ul>
+        <!-- TODO: reemplaza el '#' por el enlace real de tu formulario de postulación -->
+        <a href="#" target="_blank" rel="noopener" class="btn btn-card job-apply-link">Postularme</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- CONTACTO -->
+<!-- ===================================================== -->
+<section class="section section-dark" id="contacto">
+  <div class="section-inner">
+    <p class="eyebrow reveal-fade">Hablemos</p>
+    <h2 class="section-title reveal-fade">Contacto</h2>
+    <p class="section-lead reveal-fade">Cuéntanos tu proyecto. Respondemos rápido, como trabajamos.</p>
+
+    <div class="contact-grid">
+      <!-- TARJETA DE CORREO ACTUALIZADA A GMAIL WEB -->
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=freelanceatlassquad@gmail.com&su=%C2%A1Hola%2C%20equipo%20de%20Atlas%20Squad!%20Me%20encantar%C3%ADa%20colaborar%20con%20ustedes&body=%C2%A1Hola%2C%20equipo!%0A%0AMe%20entusiasma%20mucho%20la%20idea%20de%20trabajar%20juntos%20y%20potenciar%20mi%20proyecto.%20Les%20comparto%20mis%20datos%20para%20que%20podamos%20charlar%3A%0A%0AMi%20nombre%20es%3A%20%0AMi%20correo%20es%3A%20%0AMi%20n%C3%BAmero%20(o%20WhatsApp)%20es%3A%20%0A%0AEstoy%20interesado%20en%3A%20%0AComo%20detalle%20extra%3A%20%0ATengo%20un%20presupuesto%20aproximado%20de%3A%20%0A%0A%C2%A1Quedo%20muy%20atento%20a%20su%20respuesta%2C%20un%20saludo!" target="_blank" rel="noopener" class="contact-card reveal-fade">
+        <i class="fa-solid fa-envelope"></i>
+        <h3>Correo</h3>
+        <span>freelanceatlassquad@gmail.com</span>
+      </a>
+      <a href="https://wa.me/573227483393" target="_blank" rel="noopener" class="contact-card reveal-fade">
+        <i class="fa-brands fa-whatsapp"></i>
+        <h3>WhatsApp</h3>
+        <span>+57 322 748 3393</span>
+      </a>
+      <a href="https://www.tiktok.com/@atlas_squad_oficial" target="_blank" rel="noopener" class="contact-card reveal-fade">
+        <i class="fa-brands fa-tiktok"></i>
+        <h3>TikTok</h3>
+        <span>@atlas_squad_oficial</span>
+      </a>
+    </div>
+
+    <a href="https://calendar.app.google/WQF4nYYZXcmXiMgg8" target="_blank" rel="noopener" class="btn btn-primary btn-cta-final reveal-fade">
+      <span>Agendar asesoría gratuita</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- FOOTER -->
+<!-- ===================================================== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#hero" class="brand footer-brand-link">
+        <img src="imagenes/logotipo_as_freelance_blanco_png.png" alt="As Freelance" class="brand-logo">
+        <span class="brand-text">AS<span>FREELANCE</span></span>
+      </a>
+      <p>Freelance híbrido · Software + Marketing = Trabajo con cariño :)</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://wa.me/573227483393" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://www.tiktok.com/@atlas_squad_oficial" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+      <!-- Enlace de correo actualizado con la plantilla de Gmail -->
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=freelanceatlassquad@gmail.com&su=%C2%A1Hola%2C%20equipo%20de%20Atlas%20Squad!%20Me%20encantar%C3%ADa%20colaborar%20con%20ustedes&body=%C2%A1Hola%2C%20equipo!%0A%0AMe%20entusiasma%20mucho%20la%20idea%20de%20trabajar%20juntos%20y%20potenciar%20mi%20proyecto.%20Les%20comparto%20mis%20datos%20para%20que%20podamos%20charlar%3A%0A%0AMi%20nombre%20es%3A%20%0AMi%20correo%20es%3A%20%0AMi%20n%C3%BAmero%20(o%20WhatsApp)%20es%3A%20%0A%0AEstoy%20interesado%20en%3A%20%0AComo%20detalle%20extra%3A%20%0ATengo%20un%20presupuesto%20aproximado%20de%3A%20%0A%0A%C2%A1Quedo%20muy%20atento%20a%20su%20respuesta%2C%20un%20saludo!" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i> Correo</a>
+    </div>
+    <p class="footer-copy">© <span id="currentYear"></span> As Freelance. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- ===================================================== -->
+<!-- LIBRERÍAS EXTERNAS -->
+<!-- ===================================================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- ===== JS PROPIO ===== -->
+<script src="script.js"></script>
+</body>
+</html>
