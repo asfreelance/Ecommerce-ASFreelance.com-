@@ -11,7 +11,7 @@
   --off-white:    #F5F6F7;
   --blue:         #1A365D;
   --blue-light:   #2C5282;
-  --gray-line:    rgba(255,255,255,0.08);
+  --gray-line:    rgba(255,255,255,0.08); 
   --gray-line-dk: rgba(0,0,0,0.08);
   --text-muted-d: rgba(255,255,255,0.6);
   --text-muted-l: rgba(10,10,10,0.6);
@@ -1219,3 +1219,16 @@ a:focus-visible, button:focus-visible{
   z-index: 5;
 }
 
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Espacio entre la fila 1 y la fila 2 */
+  align-items: center;
+}
+
+.footer-links-row {
+  display: flex;
+  gap: 20px; /* Espacio horizontal entre los botones de una misma fila */
+  flex-wrap: wrap;
+  justify-content: center;
+}
