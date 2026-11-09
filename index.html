@@ -1572,6 +1572,12 @@ document.addEventListener('DOMContentLoaded', function () {
     background: var(--s-white); color: var(--s-black);
     box-shadow: 0 24px 60px rgba(0, 0, 0, .35); overflow: auto;
   }
+  /* Centrado explícito (los resets globales con margin:0 lo dejaban a la izquierda) */
+  .svc-dialog { position: fixed; inset: 0; margin: auto; }
+  /* Cursor visible dentro de las ventanas (el cursor personalizado de la web queda detrás de ellas) */
+  .svc-dialog, .svc-dialog * { cursor: auto !important; }
+  .svc-dialog button, .svc-dialog a, .svc-dialog label, .svc-dialog input[type=checkbox], .svc-dialog summary { cursor: pointer !important; }
+  .svc-dialog button[disabled] { cursor: not-allowed !important; }
   .svc-dialog[open] { animation: svc-pop .25s ease; }
   .svc-dialog .svc-d-inner { position: relative; padding: 1.75rem; }
   .svc-dialog .svc-close { position: absolute; top: .9rem; right: .9rem; }
@@ -1588,7 +1594,49 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   .svc-dialog .svc-d-actions { display: flex; gap: .6rem; margin-top: 1.5rem; }
   .svc-dialog .svc-d-actions .svc-btn:first-child { flex: 1; }
+  .svc-policy { width: min(440px, calc(100vw - 2rem)); }
+  .svc-policy .svc-p-text { margin: .4rem 0 0; font-size: .95rem; line-height: 1.5; color: var(--s-muted); }
+  .svc-policy .svc-p-check { display: flex; align-items: flex-start; gap: .6rem; margin: .9rem 0 0; font-size: .95rem; line-height: 1.4; cursor: pointer; }
+  .svc-policy .svc-p-check input { width: 1.15rem; height: 1.15rem; margin-top: .1rem; flex: none; accent-color: #2f6fc0; }
+  .svc-policy #svc-p-accept { position: relative; border: 1.5px solid #d4af37; background: rgba(212,175,55,.10); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 0 14px rgba(212,175,55,.45), inset 0 0 10px rgba(212,175,55,.15); }
+  .svc-policy #svc-p-accept:not([disabled]):hover { background: rgba(212,175,55,.20); box-shadow: 0 0 20px rgba(212,175,55,.65), inset 0 0 12px rgba(212,175,55,.25); }
+  .svc-policy .svc-btn[disabled] { opacity: .45; cursor: not-allowed; }
+  .svc-policy .svc-d-actions { flex-direction: column; }
+  .svc-policy .svc-d-actions .svc-btn { display: flex; justify-content: center; align-items: center; gap: .45rem; width: 100%; box-sizing: border-box; text-align: center; text-decoration: none; }
   html.svc-lock { overflow: hidden; }
+
+  /* ---------- Pedido confirmado: la confirmación ocupa todo el carrito ---------- */
+  #svc-keep { margin-top: .6rem; }
+  #svc-keep[hidden] { display: none; }
+  .svc-drawer.svc-confirmed .svc-scroll,
+  .svc-drawer.svc-confirmed .svc-coupon,
+  .svc-drawer.svc-confirmed .svc-row,
+  .svc-drawer.svc-confirmed .svc-total,
+  .svc-drawer.svc-confirmed .svc-fnote,
+  .svc-drawer.svc-confirmed .svc-cliente,
+  .svc-drawer.svc-confirmed #svc-pay-online,
+  .svc-drawer.svc-confirmed .svc-altlabel,
+  .svc-drawer.svc-confirmed .svc-alt,
+  .svc-drawer.svc-confirmed .svc-trust { display: none !important; }
+  .svc-drawer.svc-confirmed footer { flex: 1 1 auto; max-height: none; border-top: none; padding-top: 1.5rem; }
+  .svc-drawer.svc-confirmed .svc-done { padding: 1rem; }
+  .svc-drawer.svc-confirmed .svc-done p { font-size: .95rem; }
+
+  /* ---------- Cuadro «Pago por prioridad» (al final de todas las segmentaciones) ---------- */
+  #servicios .svc-priority {
+    display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap;
+    margin-top: 1.5rem; padding: 1.25rem 1.4rem; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(212,175,55,.14), rgba(212,175,55,.04));
+    border: 1.5px solid rgba(212,175,55,.65); box-shadow: 0 0 22px rgba(212,175,55,.18);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  }
+  #servicios .svc-pr-ico { display: grid; place-items: center; width: 2.8rem; height: 2.8rem; border-radius: 12px; background: rgba(212,175,55,.18); color: #d4af37; font-size: 1.3rem; flex: none; }
+  #servicios .svc-pr-body { flex: 1 1 260px; min-width: 0; }
+  #servicios .svc-pr-body h3 { margin: 0 0 .25rem; font-size: 1.1rem; color: #d4af37; }
+  #servicios .svc-pr-body p { margin: 0; font-size: .92rem; line-height: 1.5; color: inherit; opacity: .85; }
+  #servicios .svc-pr-btn { flex: none; }
+  #servicios .fa-graduation-cap { --fa-m: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 9l10-5 10 5-10 5z'/%3E%3Cpath d='M6 11.6v4c0 1.5 2.7 3 6 3s6-1.5 6-3v-4M22 9v5.5'/%3E%3C/svg%3E"); }
+  .fa-bolt { --fa-m: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 2L4 14h7l-1 8 9-12h-7z'/%3E%3C/svg%3E"); }
 
   /* ---------- Botón «Garantías y qué incluye» en la imagen de cada tarjeta ---------- */
   #servicios .svc-media { container-type: inline-size; }
@@ -1603,11 +1651,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   #servicios .svc-gar:hover { background: color-mix(in srgb, var(--s-blue-light) 78%, #fff); transform: translateY(-1px); }
   #servicios .svc-gar i { font-size: .85rem; }
-  /* En tarjetas angostas se oculta el texto «AS FREELANCE» y queda solo el logo para que quepa el botón */
-  @container (max-width: 340px) {
-    #servicios .svc-logo { font-size: 0; gap: 0; padding-right: .22rem; }
-    #servicios .svc-logo b { font-size: .62rem; }
-  }
 
   /* ---------- Ajustes de espacio del carrito (más compacto) ---------- */
   .svc-drawer header { padding: .6rem 1.25rem; }
@@ -1739,6 +1782,15 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </div>
 
+    <aside class="svc-priority" id="svc-priority" aria-labelledby="svc-pr-title">
+      <span class="svc-pr-ico" aria-hidden="true"><i class="fa-solid fa-bolt"></i></span>
+      <div class="svc-pr-body">
+        <h3 id="svc-pr-title">Pago por prioridad</h3>
+        <p>Tu pedido pasa por delante de los de los demás clientes. El costo es <b>anticipado</b> y equivale al <b>15 %</b> del valor de tu pedido. Se solicita únicamente por WhatsApp.</p>
+      </div>
+      <a class="svc-btn svc-pr-btn" id="svc-pr-wa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir prioridad</a>
+    </aside>
+
     <noscript>
       <p>Activa JavaScript para ver el catálogo, o
         <a href="https://wa.me/573000973921?text=Hola%2C%20quiero%20ver%20el%20cat%C3%A1logo%20de%20servicios">escríbenos por WhatsApp</a>.</p>
@@ -1866,6 +1918,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="svc-actions-bar">
       <p class="svc-cmsg" id="svc-order-msg" role="status" aria-live="polite"></p>
       <div class="svc-done" id="svc-done" hidden></div>
+      <button type="button" class="svc-btn svc-btn--ghost svc-btn--block" id="svc-keep" hidden><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Seguir comprando</button>
       <button type="button" class="svc-btn svc-btn--block svc-btn--pay" id="svc-pay-online">
         <i class="fa-solid fa-lock" aria-hidden="true"></i> <span id="svc-pay-label">Hacer pedido</span>
       </button>
@@ -1903,6 +1956,22 @@ document.addEventListener('DOMContentLoaded', function () {
   </div>
 </dialog>
 
+<dialog class="svc-dialog svc-policy" id="svc-policy" aria-labelledby="svc-p-title">
+  <div class="svc-d-inner">
+    <button class="svc-close" type="button" aria-label="Cerrar" id="svc-p-close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <h3 id="svc-p-title">Antes de enviar tu pedido</h3>
+    <p class="svc-p-text">Para procesar tu pedido guardamos tu nombre, correo y WhatsApp. Lee nuestras políticas de privacidad y tratamiento de datos. Al continuar autorizas el tratamiento de tus datos personales según esa política.</p>
+    <p class="svc-p-text">Cada garantía y sus Términos y Condiciones (TyC) se encuentran en la descripción de cada producto.</p>
+    <p class="svc-p-text">Este sitio funciona con servicios de terceros (alojamiento en GitHub Pages y envío de correos con Resend). Si alguno falla, se cae o empieza a cobrar en el futuro, AS Freelance no se hace responsable de esas interrupciones o costos.</p>
+    <label class="svc-p-check"><input type="checkbox" id="svc-p-ok"><span>Leí qué garantías y TyC tiene mi compra.</span></label>
+    <label class="svc-p-check"><input type="checkbox" id="svc-p-ok2"><span>Leí las políticas de privacidad.</span></label>
+    <div class="svc-d-actions">
+      <a class="svc-btn" id="svc-p-read" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Leer políticas</a>
+      <button type="button" class="svc-btn svc-btn--ghost" id="svc-p-accept" disabled>Acepto y enviar pedido</button>
+    </div>
+  </div>
+</dialog>
+
 <script>
 (function () {
   'use strict';
@@ -1921,6 +1990,7 @@ document.addEventListener('DOMContentLoaded', function () {
      Pon aquí tu URL (ej. 'https://tusitio.com/garantias'). Mientras valga '#', el botón no hace nada.
      Si un servicio necesita un enlace propio, agrégale  garantiaUrl: 'https://...'  en el arreglo SERVICES. */
   var GARANTIA_URL = '#';
+  var POLITICAS_URL = '#';   // ▼▼▼ PEGA AQUÍ el enlace de tu Política de privacidad / tratamiento de datos ▼▼▼
 
   /* ===== SUPABASE (fase 1: guardar la orden) =====
      Pon aquí la URL y la llave PÚBLICA («anon») de tu proyecto:
@@ -1944,6 +2014,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { id: 'web',    label: 'Web y tiendas',  icon: 'fa-globe' },
     { id: 'ia',     label: 'IA y bots',      icon: 'fa-brain' },
     { id: 'apps',   label: 'Apps y juegos',  icon: 'fa-code' },
+    { id: 'estudio', label: 'Estudio',       icon: 'fa-graduation-cap' },
     { id: 'diseno', label: 'Diseño',         icon: 'fa-pen-nib' }
   ];
 
@@ -1966,10 +2037,10 @@ document.addEventListener('DOMContentLoaded', function () {
       includes: ['Diseño a medida de tu marca', 'Secciones corporativas y de portafolio', 'Botón de contacto directo a WhatsApp y carga rápida'],
       guarantee: 'Correcciones de diseño y ajustes incluidos durante los primeros 30 días posteriores al lanzamiento.' },
 
-    { id: 'tutorias-ia', cat: 'ia', icon: 'fa-chalkboard-user', name: 'Tutorías privadas de IA',
-      desc: 'Clases en vivo, uno a uno, 100 % prácticas y sin relleno.',
+    { id: 'tutorias-ia', cat: 'estudio', icon: 'fa-chalkboard-user', name: 'Tutorías privadas de IA',
+      desc: 'Tutorías en vivo, uno a uno, para estudiar y aprender IA de forma 100 % práctica.',
       price: 70000, unit: '/ hora', featured: true,
-      includes: ['Sesiones privadas en vivo', 'Aprendizaje práctico, directo al grano', 'Sin rodeos teóricos innecesarios'],
+      includes: ['Sesiones privadas en vivo para estudiar IA', 'Aprendizaje práctico, directo al grano', 'Sin rodeos teóricos innecesarios'],
       guarantee: 'Aprendizaje 100 % práctico, directo y sin rodeos teóricos innecesarios.' },
 
     { id: 'bot-whatsapp', cat: 'ia', icon: 'fa-robot', name: 'Bot / Agente de WhatsApp',
@@ -1984,13 +2055,17 @@ document.addEventListener('DOMContentLoaded', function () {
       desc: 'Tu juego listo para celular o computador.', price: 1300000, from: true },
     { id: 'juego-web', cat: 'apps', icon: 'fa-dice', name: 'Videojuego web',
       desc: 'Juegos ligeros que se juegan desde el navegador.', price: 50000, from: true },
-    { id: 'lms', cat: 'apps', icon: 'fa-graduation-cap', name: 'Plataforma de estudio (LMS)',
-      desc: 'Cursos y contenidos en línea con tu propia plataforma.', price: 800000, from: true },
+    { id: 'lms', cat: 'estudio', icon: 'fa-graduation-cap', name: 'Plataforma de estudio (LMS)',
+      desc: 'Tu propia plataforma de estudio en línea: para cursos, colegios, academias e instituciones de aprendizaje.', price: 800000, from: true },
 
-    { id: 'herramientas-web', cat: 'web', icon: 'fa-screwdriver-wrench', name: 'Herramientas y experiencias web',
-      desc: 'Calculadoras, formularios y experiencias interactivas.', price: 50000, from: true },
-    { id: 'optimizacion-web', cat: 'web', icon: 'fa-gauge-high', name: 'Optimización y actualización web',
-      desc: 'Mejora la velocidad o actualiza el contenido de tu sitio.', price: 50000, from: true },
+    { id: 'herramientas-web', cat: 'web', icon: 'fa-screwdriver-wrench', name: 'Herramientas web',
+      desc: 'Calculadoras, formularios y utilidades a la medida para tu sitio.', price: 50000, from: true },
+    { id: 'experiencias-web', cat: 'web', icon: 'fa-window-maximize', name: 'Experiencias web',
+      desc: 'Experiencias interactivas, animaciones y secciones que enganchan a tus visitantes.', price: 50000, from: true },
+    { id: 'optimizacion-web', cat: 'web', icon: 'fa-gauge-high', name: 'Optimización web',
+      desc: 'Mejora la velocidad y el rendimiento de tu sitio.', price: 50000, from: true },
+    { id: 'actualizacion-web', cat: 'web', icon: 'fa-gauge-high', name: 'Actualización web de contenido',
+      desc: 'Actualizamos los textos, imágenes y el contenido de tu sitio.', price: 50000, from: true },
 
     { id: 'logos', cat: 'diseno', icon: 'fa-pen-nib', name: 'Logos',
       desc: 'Identidad visual para tu marca.', price: 40000, note: 'Incluye 5 propuestas' },
@@ -2144,7 +2219,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var MAP = {
       'tienda-virtual': 'tienda', 'web-corporativa': 'corp', 'tutorias-ia': 'tutor', 'bot-whatsapp': 'bot',
       'apps-desarrollo': 'apps', 'app-web': 'appweb', 'juego-movil-pc': 'gamepad', 'juego-web': 'gameweb', 'lms': 'lms',
-      'herramientas-web': 'tools', 'optimizacion-web': 'speed', 'logos': 'logo', 'banners': 'banner', 'posters': 'poster'
+      'herramientas-web': 'tools', 'experiencias-web': 'appweb', 'optimizacion-web': 'speed', 'actualizacion-web': 'corp', 'logos': 'logo', 'banners': 'banner', 'posters': 'poster'
     };
     var BG = '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2C5282"/><stop offset="1" stop-color="#0A0A0A"/></linearGradient>' +
       '<radialGradient id="rg" cx=".85" cy=".1" r=".75"><stop offset="0" stop-color="#7FB2FF" stop-opacity=".5"/><stop offset="1" stop-color="#7FB2FF" stop-opacity="0"/></radialGradient>' +
@@ -2209,6 +2284,8 @@ document.addEventListener('DOMContentLoaded', function () {
       ? 'US$' + nfUsd.format(Math.max(1, Math.round(copAmount / state.rate)))
       : '$' + nf.format(copAmount);
   }
+  var prLink = $('svc-pr-wa');
+  if (prLink) prLink.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent('Hola AS Freelance, quiero pedir el pago por prioridad (15 % anticipado) para mi pedido.');
   function waLink(s) {
     var msg = 'Hola, quiero cotizar ' + s.name + ' (' + (s.from ? 'desde ' : '') + '$' + nf.format(s.price) + ' COP)';
     return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
@@ -2242,10 +2319,10 @@ document.addEventListener('DOMContentLoaded', function () {
         (s.img ? '<img src="' + s.img + '" alt="" loading="lazy" onerror="this.remove()">' : '') +
         '<span class="svc-logo" aria-hidden="true"><b>ASF<img src="img/logo_as_freelance.png" alt="" data-exts="webp,jpg,jpeg,svg" ' +
           'onload="this.parentNode.classList.add(\'has-img\')" ' +
-          'onerror="var e=this.dataset.exts?this.dataset.exts.split(\',\'):[];var n=e.shift();if(n){this.dataset.exts=e.join(\',\');this.src=\'img/logo_as_freelance.\'+n;}else{this.remove();}"></b>AS Freelance</span>' +
+          'onerror="var e=this.dataset.exts?this.dataset.exts.split(\',\'):[];var n=e.shift();if(n){this.dataset.exts=e.join(\',\');this.src=\'img/logo_as_freelance.\'+n;}else{this.remove();}"></b>ASF</span>' +
         '<a class="svc-gar" href="' + (s.garantiaUrl || GARANTIA_URL) + '" target="_blank" rel="noopener noreferrer" ' +
-          'onclick="if(this.getAttribute(\'href\')===\'#\')event.preventDefault()" aria-label="Garantías y qué incluye: ' + s.name + '">' +
-          '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Garantías y qué incluye</a>' +
+          'onclick="if(this.getAttribute(\'href\')===\'#\')event.preventDefault()" aria-label="Garantías, ¿qué incluye? y TyC: ' + s.name + '">' +
+          '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Garantías, ¿qué incluye? y TyC</a>' +
         '<div class="svc-media-top"><span class="svc-ico" aria-hidden="true">' + aIcon(s) + '</span>' +
         '<span class="svc-tags">' + (s.badge ? '<span class="svc-badge">' + s.badge + '</span>' : '') +
         (off > 0 ? '<span class="svc-off">-' + off + '% OFF</span>' : '') + '</span></div>' +
@@ -2382,7 +2459,8 @@ document.addEventListener('DOMContentLoaded', function () {
     'bot-whatsapp': ['tutorias-ia', 'web-corporativa'], 'tutorias-ia': ['bot-whatsapp', 'app-web'],
     'apps-desarrollo': ['logos', 'app-web'], 'app-web': ['logos', 'optimizacion-web'],
     'juego-movil-pc': ['logos', 'banners'], 'juego-web': ['logos', 'posters'], 'lms': ['logos', 'tutorias-ia'],
-    'herramientas-web': ['optimizacion-web', 'web-corporativa'], 'optimizacion-web': ['web-corporativa'],
+    'herramientas-web': ['experiencias-web', 'web-corporativa'], 'experiencias-web': ['herramientas-web', 'optimizacion-web'],
+    'optimizacion-web': ['actualizacion-web', 'web-corporativa'], 'actualizacion-web': ['optimizacion-web', 'web-corporativa'],
     'logos': ['banners', 'posters', 'web-corporativa'], 'banners': ['posters', 'logos'], 'posters': ['banners', 'logos']
   };
   function suggestions() {
@@ -2451,6 +2529,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function renderCart(focusSel) {
+    drawer.classList.toggle('svc-confirmed', !!state.orderRef);
+    $('svc-keep').hidden = !state.orderRef;
     var ids = Object.keys(state.cart), n = cartCount();
     var lines = $('svc-lines'), footer = $('svc-footer');
     $('svc-fab-total').textContent = n ? fmt(cartPayable()) : '';
@@ -2742,10 +2822,27 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   window.mostrarConfirmacion = mostrarConfirmacion;              // la fase 2 (Wompi) la llama con pagado=true
 
+  /* Ventana «Leer políticas»: se abre al enviar el pedido y, si el cliente acepta, se envía. */
+  var politicasOk = false, polWin = $('svc-policy');
+  $('svc-p-read').setAttribute('href', POLITICAS_URL);
+  function cerrarPoliticas() { if (polWin.open) polWin.close(); }
+  $('svc-p-close').addEventListener('click', cerrarPoliticas);
+  function revisarChecks() { $('svc-p-accept').disabled = !($('svc-p-ok').checked && $('svc-p-ok2').checked); }
+  $('svc-p-ok').addEventListener('change', revisarChecks);
+  $('svc-p-ok2').addEventListener('change', revisarChecks);
+  polWin.addEventListener('close', function () { $('svc-p-ok').checked = false; $('svc-p-ok2').checked = false; $('svc-p-accept').disabled = true; });
+  $('svc-p-accept').addEventListener('click', function () {
+    if (!$('svc-p-ok').checked || !$('svc-p-ok2').checked) return;
+    politicasOk = true; cerrarPoliticas(); $('svc-pay-online').click();
+  });
+  polWin.addEventListener('click', function (e) { if (e.target === polWin) cerrarPoliticas(); });
+
   $('svc-pay-online').addEventListener('click', function () {
     if (state.ordering || state.orderRef) return;
     var payload = construirPayloadOrden();
     if (!payload) return;
+    if (!politicasOk) { if (!polWin.open) polWin.showModal(); return; }
+    politicasOk = false;
     state.ordering = true; setOrderMsg('', ''); renderCart();
     crearOrdenEnSupabase(payload).then(function (orden) {
       state.ordering = false; state.orderRef = orden.referencia; state.orden = orden;
@@ -2777,6 +2874,16 @@ document.addEventListener('DOMContentLoaded', function () {
   drawer.addEventListener('click', function (e) { if (e.target === drawer) drawer.close(); });
   drawer.addEventListener('close', function () { document.documentElement.classList.remove('svc-lock'); });
   var clearTimer;
+  /* «Seguir comprando»: el pedido ya quedó registrado → se limpia el carrito y se vuelve al catálogo. */
+  $('svc-keep').addEventListener('click', function () {
+    state.orderRef = null; state.orden = null; setOrderMsg('', ''); $('svc-done').hidden = true;
+    undo = null; state.coupon = null; $('svc-coupon-in').value = ''; setCouponMsg('', '');
+    Object.keys(state.cart).slice().forEach(function (id) { delete state.cart[id]; renderAdd(id); });
+    saveCart(); renderCart(); updateFab(false);
+    drawer.close();
+    $('svc-grid').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  });
+
   $('svc-clear').addEventListener('click', function () {
     var btn = this;
     if (!btn.classList.contains('is-confirm')) {
@@ -2990,7 +3097,7 @@ document.addEventListener('DOMContentLoaded', function () {
   loadRate();
   if (location.hash) handleHash();
 })();
-</script>  
+</script>
 <!-- aqui acaba la seccion de ventas -->
 
 <!-- ===================================================== -->
